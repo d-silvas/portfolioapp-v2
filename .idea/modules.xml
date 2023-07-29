@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db-core/db-core.iml" filepath="$PROJECT_DIR$/db-core/db-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db-migrations/db-migrations.iml" filepath="$PROJECT_DIR$/db-migrations/db-migrations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/portfolioapp.iml" filepath="$PROJECT_DIR$/.idea/portfolioapp.iml" />
+    </modules>
+  </component>
+</project>
