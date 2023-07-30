@@ -17,7 +17,20 @@ public class SbuxPlAnalysisService {
     }
 
     private Double getCagr5(Double previousValue, Double currentValue) {
-        return Math.pow(currentValue / previousValue, 1.0 / 5) - 1;
+        // TODO test NAN/Infinites
+        double power = Math.pow(currentValue / previousValue, 1.0 / 5);
+        if (Double.isNaN(power) || Double.isInfinite(power)) {
+            return null;
+        }
+        return power - 1;
+    }
+
+    private Double getCagr10(Double previousValue, Double currentValue) {
+        double power = Math.pow(currentValue / previousValue, 1.0 / 10);
+        if (Double.isNaN(power) || Double.isInfinite(power)) {
+            return null;
+        }
+        return power - 1;
     }
 
     public List<SbuxPlAnalysis> findAllYearly() {
@@ -48,6 +61,18 @@ public class SbuxPlAnalysisService {
                 plAnalysis.setEbtCagr5(getCagr5(previousPlAnalysis.getEbt(), plAnalysis.getEbt()));
                 plAnalysis.setTaxPaidCagr5(getCagr5(previousPlAnalysis.getTaxPaid(), plAnalysis.getTaxPaid()));
                 plAnalysis.setNetIncomeCagr5(getCagr5(previousPlAnalysis.getNetIncome(), plAnalysis.getNetIncome()));
+            }
+            if (index >= 10) {
+                SbuxPlAnalysis previousPlAnalysis = plAnalysisList.get(index - 10);
+                plAnalysis.setNetRevenueCagr10(getCagr10(previousPlAnalysis.getNetRevenue(), plAnalysis.getNetRevenue()));
+                plAnalysis.setCogsCagr10(getCagr10(previousPlAnalysis.getCogs(), plAnalysis.getCogs()));
+                plAnalysis.setGrossProfitCagr10(getCagr10(previousPlAnalysis.getGrossProfit(), plAnalysis.getGrossProfit()));
+                plAnalysis.setSgaCagr10(getCagr10(previousPlAnalysis.getSga(), plAnalysis.getSga()));
+                plAnalysis.setEbitdaCagr10(getCagr10(previousPlAnalysis.getEbitda(), plAnalysis.getEbitda()));
+                plAnalysis.setEbitCagr10(getCagr10(previousPlAnalysis.getEbit(), plAnalysis.getEbit()));
+                plAnalysis.setEbtCagr10(getCagr10(previousPlAnalysis.getEbt(), plAnalysis.getEbt()));
+                plAnalysis.setTaxPaidCagr10(getCagr10(previousPlAnalysis.getTaxPaid(), plAnalysis.getTaxPaid()));
+                plAnalysis.setNetIncomeCagr10(getCagr10(previousPlAnalysis.getNetIncome(), plAnalysis.getNetIncome()));
             }
             plAnalysisList.add(plAnalysis);
         }

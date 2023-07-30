@@ -93,6 +93,8 @@ public class SbuxPlAnalysis {
     @Getter
     private final Integer calendarYear;
     @Getter
+    private final Double netIncomeAsProportionOfRevenues;
+    @Getter
     @Setter
     private Double netRevenueDelta;
     @Getter
@@ -165,8 +167,6 @@ public class SbuxPlAnalysis {
     @Setter
     private Double taxPaidCagr10;
     @Getter
-    private Double netIncomeAsProportionOfRevenues;
-    @Getter
     @Setter
     private Double netIncomeDelta;
     @Getter
@@ -201,6 +201,7 @@ public class SbuxPlAnalysis {
         this.taxPaid = incomeStatement.getIncomeTaxExpense();
         this.taxPaidAsProportionOfEbt = this.taxPaid / this.ebt;
         this.netIncome = incomeStatement.getNetEarnings();
+        this.netIncomeAsProportionOfRevenues = this.netIncome / this.netRevenue;
     }
 
 }

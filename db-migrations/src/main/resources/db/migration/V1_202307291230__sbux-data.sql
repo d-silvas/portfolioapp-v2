@@ -5,14 +5,18 @@ INSERT INTO public.sbux_financial_reports (
     end_date,
     publication_date
 ) VALUES
-    (1,'full',2022,'2022-10-02',NULL),
-    (2,'full',2021,'2021-10-03',NULL),
-    (3,'full',2020,'2020-09-27',NULL),
-    (4,'full',2019,'2019-09-29',NULL),
-    (5,'full',2018,'2018-09-30',NULL),
-    (6,'full',2017,'2017-09-29',NULL), -- TODO end_date (from here)
-    (7,'full',2016,'2016-09-29',NULL),
-    (8,'full',2015,'2015-09-29',NULL);
+    (1,'full',2022,'2022-10-02','2022-11-18'),
+    (2,'full',2021,'2021-10-03','2021-11-19'),
+    (3,'full',2020,'2020-09-27','2020-11-12'),
+    (4,'full',2019,'2019-09-29','2019-11-15'),
+    (5,'full',2018,'2018-09-30','2018-11-16'),
+    (6,'full',2017,'2017-10-01','2017-11-17'),
+    (7,'full',2016,'2016-10-02','2016-11-18'),
+    (8,'full',2015,'2015-09-27','2015-11-12'),
+    (9,'full',2014,'2014-09-28','2014-11-14'),
+    (10,'full',2013,'2013-09-29','2013-11-18'),
+    (11,'full',2012,'2012-09-30','2012-11-16'),
+    (12,'full',2011,'2011-10-02','2015-11-18');
 
 INSERT INTO public.sbux_income_statements (
     id,
@@ -248,6 +252,112 @@ INSERT INTO public.sbux_income_statements (
     1.82, -- eps_diluted
     1495900000, -- weighted_average_shares_outstanding_basic
     1513400000 -- weighted_average_shares_outstanding_diluted
+),
+ -- NOTE: THERE WAS A 2:1 SPLIT ON 2015-09-04
+(
+    9, -- id
+    9, -- financial_report_id
+    12977900000, -- revenues_company_operated_stores
+    1588600000, -- revenues_licensed_stores
+    1881300000, -- revenues_other
+    16447800000, -- net_revenues
+    6858800000, -- product_and_distribution_costs
+    4638200000, -- store_operating_expenses
+    457300000, -- other_operating_expenses
+    709600000, -- depreciation_and_amortization_expenses
+    991300000, -- general_and_administrative_expenses
+    -20200000, -- restructuring_and_impairments
+    13635000000, -- total_operating_expenses
+    268300000, -- income_from_equity_investments
+    3081100000, -- operating_income
+    0, -- acquisitions_and_divestitures
+    142700000, -- interest_income_and_other
+    -64100000, -- interest_expense
+    3159700000, -- earnings_before_income_taxes
+    1092000000, -- income_tax_expense
+    2068100000, -- net_earnings
+    2.75/2, -- eps_basic
+    2.71/2, -- eps_diluted
+    753100000*2, -- weighted_average_shares_outstanding_basic
+    763100000*2 -- weighted_average_shares_outstanding_diluted
+), (
+    10, -- id
+    10, -- financial_report_id
+    11793200000, -- revenues_company_operated_stores
+    1360500000, -- revenues_licensed_stores
+    1713100000, -- revenues_other
+    14866800000, -- net_revenues
+    6382300000, -- product_and_distribution_costs
+    4286100000, -- store_operating_expenses
+    431800000, -- other_operating_expenses
+    621400000, -- depreciation_and_amortization_expenses
+    937900000, -- general_and_administrative_expenses
+    2784100000, -- restructuring_and_impairments
+    15443600000, -- total_operating_expenses
+    251400000, -- income_from_equity_investments
+    -325400000, -- operating_income
+    0, -- acquisitions_and_divestitures
+    123600000, -- interest_income_and_other
+    -28100000, -- interest_expense
+    -229900000, -- earnings_before_income_taxes
+    -238700000, -- income_tax_expense
+    8300000, -- net_earnings
+    0.01/2, -- eps_basic
+    0.01/2, -- eps_diluted
+    749300000*2, -- weighted_average_shares_outstanding_basic
+    762300000*2 -- weighted_average_shares_outstanding_diluted
+), (
+    11, -- id
+    11, -- financial_report_id
+    10534500000, -- revenues_company_operated_stores
+    1210300000, -- revenues_licensed_stores
+    1532000000, -- revenues_other
+    13276800000, -- net_revenues
+    5813300000, -- product_and_distribution_costs
+    3918100000, -- store_operating_expenses
+    407200000, -- other_operating_expenses
+    550300000, -- depreciation_and_amortization_expenses
+    801200000, -- general_and_administrative_expenses
+    0, -- restructuring_and_impairments
+    11490100000, -- total_operating_expenses
+    210700000, -- income_from_equity_investments
+    1997400000, -- operating_income
+    0, -- acquisitions_and_divestitures
+    94400000, -- interest_income_and_other
+    -32700000, -- interest_expense
+    2059100000, -- earnings_before_income_taxes
+    674400000, -- income_tax_expense
+    1383800000, -- net_earnings
+    1.83/2, -- eps_basic
+    1.79/2, -- eps_diluted
+    754400000*2, -- weighted_average_shares_outstanding_basic
+    773000000*2 -- weighted_average_shares_outstanding_diluted
+), (
+    12, -- id
+    12, -- financial_report_id
+    9632400000, -- revenues_company_operated_stores
+    1007500000, -- revenues_licensed_stores
+    1060500000, -- revenues_other
+    11700400000, -- net_revenues
+    4915500000, -- product_and_distribution_costs
+    3594900000, -- store_operating_expenses
+    392800000, -- other_operating_expenses
+    523300000, -- depreciation_and_amortization_expenses
+    749300000, -- general_and_administrative_expenses
+    0, -- restructuring_and_impairments
+    10175800000, -- total_operating_expenses
+    173700000, -- income_from_equity_investments
+    1728500000, -- operating_income
+    30200000, -- acquisitions_and_divestitures
+    115900000, -- interest_income_and_other
+    -33300000, -- interest_expense
+    1811100000, -- earnings_before_income_taxes
+    563100000, -- income_tax_expense
+    1245700000, -- net_earnings
+    1.66/2, -- eps_basic
+    1.62/2, -- eps_diluted
+    748300000, -- weighted_average_shares_outstanding_basic
+    769700000 -- weighted_average_shares_outstanding_diluted
 );
 
 INSERT INTO public.sbux_balance_sheets (
