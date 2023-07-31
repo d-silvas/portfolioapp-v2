@@ -1,27 +1,41 @@
 <tr style="cursor: pointer" (click)="toggle()">
-  <th scope="row">
+  <th scope="row" [appTableToCsvRawValue]="title">
     <mat-icon [inline]="true">{{
       (isExpanded$ | async) === true ? "expand_less" : "expand_more"
     }}</mat-icon>
     {{ title }}
   </th>
-  <td *ngFor="let value of data$ | async">
+  <td *ngFor="let value of data$ | async" [appTableToCsvRawValue]="value">
     {{ value | financialNumber : numberFormat }}
   </td>
 </tr>
-<tr class="expanded" *ngIf="showDelta && (isExpanded$ | async) === true">
+<tr
+  class="expanded"
+  *ngIf="showDelta"
+  [ngClass]="{ hidden: (isExpanded$ | async) === false }"
+>
   <th scope="row">Delta</th>
-  <td *ngFor="let value of deltas$ | async">{{ value | percent : "1.2-2" }}</td>
-</tr>
-<tr class="expanded" *ngIf="showCagrs5y && (isExpanded$ | async) === true">
-  <th scope="row">CAGR 5y</th>
-  <td *ngFor="let value of cagrs5y$ | async">
+  <td *ngFor="let value of deltas$ | async" [appTableToCsvRawValue]="value">
     {{ value | percent : "1.2-2" }}
   </td>
 </tr>
-<tr class="expanded" *ngIf="showCagrs10y && (isExpanded$ | async) === true">
+<tr
+  class="expanded"
+  *ngIf="showCagrs5y"
+  [ngClass]="{ hidden: (isExpanded$ | async) === false }"
+>
+  <th scope="row">CAGR 5y</th>
+  <td *ngFor="let value of cagrs5y$ | async" [appTableToCsvRawValue]="value">
+    {{ value | percent : "1.2-2" }}
+  </td>
+</tr>
+<tr
+  class="expanded"
+  *ngIf="showCagrs10y"
+  [ngClass]="{ hidden: (isExpanded$ | async) === false }"
+>
   <th scope="row">CAGR 10y</th>
-  <td *ngFor="let value of cagrs10y$ | async">
+  <td *ngFor="let value of cagrs10y$ | async" [appTableToCsvRawValue]="value">
     {{ value | percent : "1.2-2" }}
   </td>
 </tr>

@@ -1,6 +1,6 @@
 -- We make assumptions on whole years only
 -- We leave quarterly assumptions for the future
-CREATE TABLE public.sbux_assumptions (
+CREATE TABLE public.sbux_model_assumptions (
     id SERIAL PRIMARY KEY,
     assumption_date DATE,
     year_from INTEGER,
@@ -20,10 +20,11 @@ CREATE TABLE public.sbux_assumptions (
     channel_development_revenue_growth_perc_base FLOAT8,
     channel_development_revenue_growth_perc_bull FLOAT8,
     channel_development_revenue_growth_perc_bear FLOAT8,
-    other_revenues FLOAT8
+    other_revenues FLOAT8,
+    UNIQUE(assumption_date, year_from, year_to)
 );
 
-INSERT INTO public.sbux_assumptions (
+INSERT INTO public.sbux_model_assumptions (
     id,
     assumption_date,
     year_from,

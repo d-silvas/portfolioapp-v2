@@ -37,7 +37,10 @@ commit;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" object-ref="schemas/public/tables/sbux_income_statements" />
+      <object connection-id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" object-ref="schemas/public/tables/sbux_balance_sheets" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" />
@@ -45,6 +48,9 @@ commit;]]></console>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" dataset="public.sbux_financial_reports" active-filter-id="4b6d6218-c726-4a5f-9d23-490e7e8d8f75">
       <filter id="4b6d6218-c726-4a5f-9d23-490e7e8d8f75" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    </filter-actions>
+    <filter-actions connection-id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" dataset="public.sbux_balance_sheets" active-filter-id="7df22993-bfc5-4f04-ab51-7529927c11f6">
+      <filter id="7df22993-bfc5-4f04-ab51-7529927c11f6" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
     </filter-actions>
     <filter-actions connection-id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" dataset="public.sbux_income_statements" active-filter-id="349b2665-48d9-4aea-99f9-f73f3ca2b568">
       <filter id="349b2665-48d9-4aea-99f9-f73f3ca2b568" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
