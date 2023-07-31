@@ -36,4 +36,7 @@ public class SbuxFinancialReport {
 
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "financialReport")
     private SbuxBalanceSheet balanceSheet;
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "financialReport")
+    private SbuxSegmentInfo segmentInfo;
 }

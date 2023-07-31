@@ -4,24 +4,30 @@ import { SbuxPlAnalysisComponent } from './sbux-pl-analysis/sbux-pl-analysis.com
 import { UiModule } from '../ui';
 import { SbuxComponent } from './sbux.component';
 import { StoreModule } from '@ngrx/store';
-import { sbuxPlAnalysisReducer } from './sbux-pl-analysis/store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { SbuxPlAnalysisEffects } from './sbux-pl-analysis/store/effects';
 import { SbuxRoutingModule } from './sbux-routing.module';
 import { SbuxPlAnalysisGraphComponent } from './sbux-pl-analysis/sbux-pl-analysis-graph/sbux-pl-analysis-graph.component';
+import { sbuxReducer } from './store/reducer';
+import { SbuxSegmentInfoAnalysisComponent } from './sbux-segment-info-analysis/sbux-segment-info-analysis.component';
+import { SbuxSegmentInfoAnalysisEffects } from './sbux-segment-info-analysis/store/effects';
 
 @NgModule({
   declarations: [
     SbuxComponent,
     SbuxPlAnalysisComponent,
     SbuxPlAnalysisGraphComponent,
+    SbuxSegmentInfoAnalysisComponent,
   ],
   imports: [
     CommonModule,
     UiModule,
     SbuxRoutingModule,
-    StoreModule.forFeature('sbuxPlAnalysis', sbuxPlAnalysisReducer),
-    EffectsModule.forFeature([SbuxPlAnalysisEffects]),
+    StoreModule.forFeature('sbux', sbuxReducer),
+    EffectsModule.forFeature([
+      SbuxPlAnalysisEffects,
+      SbuxSegmentInfoAnalysisEffects,
+    ]),
   ],
 })
 export class SbuxModule {}

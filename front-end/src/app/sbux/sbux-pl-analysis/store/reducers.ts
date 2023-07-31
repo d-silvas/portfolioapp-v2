@@ -1,10 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
 import * as actions from './actions';
-import {
-  sbuxPlAnalysisInitialState as sbuxPlAnalysisInitialState,
-  SbuxPlAnalysisState,
-} from './state';
+import { sbuxPlAnalysisInitialState, SbuxPlAnalysisState } from './state';
 
 const reducer = createReducer(
   sbuxPlAnalysisInitialState,

@@ -1,0 +1,142 @@
+<table class="app-table" *ngIf="tableInfo$ | async as tableInfo">
+  <thead>
+    <tr>
+      <th>Period</th>
+      <th *ngFor="let period of tableInfo.period">
+        {{ period }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <app-table-deltas
+      [title]="'Revenue'"
+      [data]="tableInfo.totalRevenues"
+      [deltas]="tableInfo.totalRevenuesDelta"
+      [cagrs5y]="tableInfo.totalRevenuesCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <app-table-deltas
+      [title]="'Num stores'"
+      [data]="tableInfo.totalNumStores"
+      [numberFormat]="'1.0-0'"
+      [deltas]="tableInfo.totalNumStoresDelta"
+      [cagrs5y]="tableInfo.totalNumStoresCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <app-table-deltas
+      [title]="'North America Revenues'"
+      [data]="tableInfo.northAmericaRevenues"
+      [deltas]="tableInfo.northAmericaRevenuesDelta"
+      [cagrs5y]="tableInfo.northAmericaRevenuesCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <tr>
+      <th scope="row">NA Revenues/Total Revenues</th>
+      <td
+        *ngFor="
+          let val of tableInfo.northAmericaRevenuesAsProportionOfTotalRevenues
+        "
+      >
+        {{ val | percent : "1.2-2" }}
+      </td>
+    </tr>
+    <app-table-deltas
+      [title]="'North America Num Stores'"
+      [data]="tableInfo.northAmericaNumStores"
+      [numberFormat]="'1.0-0'"
+      [deltas]="tableInfo.northAmericaNumStoresDelta"
+      [cagrs5y]="tableInfo.northAmericaNumStoresCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <tr>
+      <th scope="row">NA Num Stores/Total Num Stores</th>
+      <td
+        *ngFor="
+          let val of tableInfo.northAmericaNumStoresAsProportionOfTotalStores
+        "
+      >
+        {{ val | percent : "1.2-2" }}
+      </td>
+    </tr>
+    <app-table-deltas
+      [title]="'North America Revenue per Store'"
+      [data]="tableInfo.northAmericaRevenuePerStore"
+      [deltas]="tableInfo.northAmericaRevenuePerStoreDelta"
+      [cagrs5y]="tableInfo.northAmericaRevenuePerStoreCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <app-table-deltas
+      [title]="'International Revenues'"
+      [data]="tableInfo.internationalRevenues"
+      [deltas]="tableInfo.internationalRevenuesDelta"
+      [cagrs5y]="tableInfo.internationalRevenuesCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <tr>
+      <th scope="row">International Revenues/Total Revenues</th>
+      <td
+        *ngFor="
+          let val of tableInfo.internationalRevenuesAsProportionOfTotalRevenues
+        "
+      >
+        {{ val | percent : "1.2-2" }}
+      </td>
+    </tr>
+    <app-table-deltas
+      [title]="'International Num Stores'"
+      [data]="tableInfo.internationalNumStores"
+      [numberFormat]="'1.0-0'"
+      [deltas]="tableInfo.internationalNumStoresDelta"
+      [cagrs5y]="tableInfo.internationalNumStoresCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <tr>
+      <th scope="row">International Num Stores/Total Num Stores</th>
+      <td
+        *ngFor="
+          let val of tableInfo.internationalNumStoresAsProportionOfTotalStores
+        "
+      >
+        {{ val | percent : "1.2-2" }}
+      </td>
+    </tr>
+    <app-table-deltas
+      [title]="'International Revenue per Store'"
+      [data]="tableInfo.internationalRevenuePerStore"
+      [deltas]="tableInfo.internationalRevenuePerStoreDelta"
+      [cagrs5y]="tableInfo.internationalRevenuePerStoreCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <app-table-deltas
+      [title]="'Channel Development Revenues'"
+      [data]="tableInfo.channelDevelopmentRevenues"
+      [deltas]="tableInfo.channelDevelopmentRevenuesDelta"
+      [cagrs5y]="tableInfo.channelDevelopmentRevenuesCagr5"
+      [showCagrs10y]="false"
+    ></app-table-deltas>
+    <tr>
+      <th scope="row">Channel Development Revenues / Total Revenues</th>
+      <td
+        *ngFor="
+          let val of tableInfo.channelDevelopmentRevenuesAsProportionOfTotalRevenues
+        "
+      >
+        {{ val | percent : "1.2-2" }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Other Revenues</th>
+      <td *ngFor="let val of tableInfo.otherRevenues">
+        {{ val | financialNumber : "1.2-2" }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Other Revenues / Total Revenues</th>
+      <td
+        *ngFor="let val of tableInfo.otherRevenuesAsProportionOfTotalRevenues"
+      >
+        {{ val | percent : "1.2-2" }}
+      </td>
+    </tr>
+  </tbody>
+</table>

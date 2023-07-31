@@ -16,7 +16,7 @@ public class SbuxDebtAnalysisController {
     private final SbuxDebtAnalysisService sbuxDebtAnalysisService;
 
     @GetMapping
-    public ResponseEntity<List<SbuxDebtAnalysis>> sbuxDebtAnalysisService() {
+    public ResponseEntity<List<SbuxDebtAnalysis>> getSbuxDebtAnalyses() {
         List<SbuxDebtAnalysis> debtAnalysisList = sbuxDebtAnalysisService.findAllYearly();
         return new ResponseEntity<>(debtAnalysisList, HttpStatus.OK);
     }

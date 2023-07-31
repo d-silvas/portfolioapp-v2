@@ -17,8 +17,8 @@ public class SbuxDebtAnalysisService {
         List<SbuxDebtAnalysis> debtAnalysisList = new ArrayList<>();
         for (int index = 0; index < financialReports.size(); index++) {
             SbuxFinancialReport financialReport = financialReports.get(index);
-            // TODO this may mess up delta/cagr calculations
             if (financialReport.getIncomeStatement() == null || financialReport.getBalanceSheet() == null) {
+                // TODO this may mess up delta/cagr information
                 continue;
             }
             SbuxPlAnalysis plAnalysis = new SbuxPlAnalysis(financialReport);

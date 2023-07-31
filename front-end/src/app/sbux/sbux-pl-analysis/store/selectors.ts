@@ -1,9 +1,7 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 
 import { SbuxPlAnalysisState } from './state';
-
-export const getSbuxPlAnalysisState =
-  createFeatureSelector<SbuxPlAnalysisState>('sbuxPlAnalysis');
+import { getSbuxPlAnalysisState } from '../../store/selectors';
 
 export const getSbuxPlAnalysis = createSelector(
   getSbuxPlAnalysisState,

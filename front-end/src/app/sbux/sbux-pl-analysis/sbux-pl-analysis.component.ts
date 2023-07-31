@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { SbuxPlAnalysisTableInfo } from './models';
 import { Store, select } from '@ngrx/store';
-import { SbuxPlAnalysisRootState } from './store/state';
 import * as sbuxPlAnalysisSelectors from './store/selectors';
 import * as sbuxPlAnalysisActions from './store/actions';
 import { SbuxPlAnalysisTableInfoMapperService } from './services';
+import { SbuxRootState } from '../store/state';
 
 @Component({
   selector: 'app-sbux-pl-analysis',
@@ -16,7 +16,7 @@ export class SbuxPlAnalysisComponent {
   tableInfo$: Observable<SbuxPlAnalysisTableInfo>;
 
   constructor(
-    private readonly _store: Store<SbuxPlAnalysisRootState>,
+    private readonly _store: Store<SbuxRootState>,
     private readonly _sbuxPlAnalysisTableInfoMapperService: SbuxPlAnalysisTableInfoMapperService
   ) {
     this._store.dispatch(sbuxPlAnalysisActions.loadSbuxPlAnalysis());

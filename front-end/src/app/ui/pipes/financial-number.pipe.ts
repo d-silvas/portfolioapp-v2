@@ -6,11 +6,11 @@ export class FinancialNumberPipe implements PipeTransform {
   static readonly OneBillion = 1000000000;
   static readonly OneMillion = 1000000;
 
-  constructor(private readonly _decimalPipe: DecimalPipe) { }
+  constructor(private readonly _decimalPipe: DecimalPipe) {}
 
   // TODO ? accept different dividers (thousands, millions, etc)
   // TODO ? parenthesis and RED if negative
-  transform(value: string | number, format: string = '1.3-3'): string | number {
+  transform(value: string | number, format: string = '1.2-2'): string | number {
     if (!value) {
       return null;
     }
@@ -27,10 +27,9 @@ export class FinancialNumberPipe implements PipeTransform {
       }
       return this._decimalPipe.transform(Number(value), format);
     } catch {
-      console.warn(`[FinancialNumberPipe] Could not transform ${value}`)
+      console.warn(`[FinancialNumberPipe] Could not transform ${value}`);
     }
 
     return null;
   }
-
 }
