@@ -434,4 +434,115 @@ INSERT INTO public.sbux_balance_sheets (
     -8449800000,-- retained_earnings
     -463200000,-- accumulated_other_comprehensive_income
     -8706600000-- total_shareholders_equity
+),(
+    2, -- id
+    2, -- financial_report_id
+    6455700000,-- cash_and_cash_equivalents
+    162200000,-- short_term_investments
+    940000000,-- accounts_receivable_net
+    1603900000,-- inventories
+    594600000,-- prepaid_expenses_and_other_current_assets
+    9756400000,-- total_current_assets
+    281700000,-- long_term_investments
+    268500000,-- equity_investments
+    6369500000,-- ppe_net
+    8236000000,-- operating_lease_right_of_use_asset
+    1874800000,-- deferred_income_taxes_net
+    578500000,-- other_long_term_assets
+    349900000,-- other_intangible_assets
+    3677300000,-- goodwill
+    31392600000,-- total_assets
+    1211600000,-- accounts_payable
+    2321200000,-- accrued_liabilities
+    772300000,-- accrued_payroll_and_benefits
+    348000000,-- income_taxes_payable
+    1251300000,-- current_portion_of_operating_lease_liability
+    1596100000,-- stored_value_card_liab_and_current_portion_of_def_rev
+    0,-- short_term_debt
+    998900000,-- current_portion_of_long_term_debt
+    8151400000,-- total_current_liabilities
+    13616900000,-- long_term_debt
+    7738000000,-- operating_lease_liability
+    6463000000,-- deferred_revenue
+    737800000,-- other_long_term_liabilities
+    36707100000,-- total_liabilities
+    1.2,-- common_stock
+    846100000,-- additional_paid_in_capital
+    -6315700000,-- retained_earnings
+    147200000,-- accumulated_other_comprehensive_income
+    -5321200000-- total_shareholders_equity
+),(
+    3, -- id
+    3, -- financial_report_id
+    4350900000,-- cash_and_cash_equivalents
+    281200000,-- short_term_investments
+    883400000,-- accounts_receivable_net
+    1551400000,-- inventories
+    739500000,-- prepaid_expenses_and_other_current_assets
+    7806400000,-- total_current_assets
+    206100000,-- long_term_investments
+    478700000,-- equity_investments
+    6241400000,-- ppe_net
+    8134100000,-- operating_lease_right_of_use_asset
+    1789900000,-- deferred_income_taxes_net
+    568600000,-- other_long_term_assets
+    552100000,-- other_intangible_assets
+    3597200000,-- goodwill
+    29374500000,-- total_assets
+    997900000,-- accounts_payable
+    1160700000,-- accrued_liabilities
+    696000000,-- accrued_payroll_and_benefits
+    98200000,-- income_taxes_payable
+    1248200000,-- current_portion_of_operating_lease_liability
+    1456500000,-- stored_value_card_liab_and_current_portion_of_def_rev
+    438800000,-- short_term_debt
+    1249900000,-- current_portion_of_long_term_debt
+    7346800000,-- total_current_liabilities
+    14659600000,-- long_term_debt
+    7661700000,-- operating_lease_liability
+    6598500000,-- deferred_revenue
+    907300000,-- other_long_term_liabilities
+    37173900000,-- total_liabilities
+    1.2,-- common_stock
+    373900000,-- additional_paid_in_capital
+    -7815600000,-- retained_earnings
+    -364600000,-- accumulated_other_comprehensive_income
+    -7805100000-- total_shareholders_equity
+),(
+    4, -- id
+    4, -- financial_report_id
+    2686600000,-- cash_and_cash_equivalents
+    70500000,-- short_term_investments
+    879200000,-- accounts_receivable_net
+    1529400000,-- inventories
+    488200000,-- prepaid_expenses_and_other_current_assets
+    5653900000,-- total_current_assets
+    220000000,-- long_term_investments
+    396000000,-- equity_investments
+    6431700000,-- ppe_net
+    0,-- operating_lease_right_of_use_asset
+    1765800000,-- deferred_income_taxes_net
+    479600000,-- other_long_term_assets
+    781800000,-- other_intangible_assets
+    3490800000,-- goodwill
+    19219600000,-- total_assets
+    1189700000,-- accounts_payable
+    1753700000,-- accrued_liabilities
+    664600000,-- accrued_payroll_and_benefits
+    1291700000,-- income_taxes_payable
+    0,-- current_portion_of_operating_lease_liability
+    1269000000,-- stored_value_card_liab_and_current_portion_of_def_rev
+    0,-- short_term_debt
+    0,-- current_portion_of_long_term_debt
+    6168700000,-- total_current_liabilities
+    11167000000,-- long_term_debt
+    0,-- operating_lease_liability
+    6744400000,-- deferred_revenue
+    1370500000,-- other_long_term_liabilities
+    25450600000,-- total_liabilities
+    1.2,-- common_stock
+    31100000,-- additional_paid_in_capital
+    -5771200000,-- retained_earnings
+    -503300000,-- accumulated_other_comprehensive_income
+    -6232200000-- total_shareholders_equity
 );

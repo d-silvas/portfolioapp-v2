@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SbuxPlAnalysisTableInfo } from '../models';
+import HC_bellcurve from 'highcharts/modules/histogram-bellcurve';
+HC_bellcurve(Highcharts);
 
 @UntilDestroy()
 @Component({
@@ -16,13 +18,14 @@ export class SbuxPlAnalysisGraphComponent implements OnInit {
     this._tableInfo$.next(i);
   }
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions$ = new BehaviorSubject<Highcharts.Options>(null);
+  allProfitsChartOptions$ = new BehaviorSubject<Highcharts.Options>(null);
+  ebitdaMarginChartOptions$: Observable<Highcharts.Options>;
 
   ngOnInit(): void {
     this._tableInfo$
       .pipe(untilDestroyed(this))
       .subscribe((tableInfo: SbuxPlAnalysisTableInfo) => {
-        this.chartOptions$.next({
+        this.allProfitsChartOptions$.next({
           credits: { enabled: false },
           title: { text: null },
           series: [
@@ -92,5 +95,80 @@ export class SbuxPlAnalysisGraphComponent implements OnInit {
           ],
         });
       });
+    this.ebitdaMarginChartOptions$ = this._tableInfo$.pipe(
+      map((tableInfo: SbuxPlAnalysisTableInfo) => {
+        const pointsInInterval = 4;
+        const data = tableInfo.ebitdaAsProportionOfRevenues.map((n) => n * 100);
+        return {
+          credits: { enabled: false },
+          title: { text: null },
+          series: [
+            {
+              name: 'EBITDA margin',
+              type: 'bellcurve',
+              xAxis: 1,
+              yAxis: 1,
+              baseSeries: 1,
+              intervals: 3,
+              pointsInInterval,
+              marker: { enabled: true },
+            },
+            {
+              name: 'Data',
+              type: 'scatter',
+              data,
+              visible: false,
+            },
+          ],
+          xAxis: [
+            {
+              title: { text: null },
+            },
+            {
+              title: { text: null },
+            },
+          ],
+          yAxis: [
+            {
+              title: { text: null },
+            },
+            {
+              title: { text: null },
+              visible: false,
+            },
+          ],
+          chart: {
+            events: {
+              load: function () {
+                console.log('LOADD');
+                console.log((this as any).series[0].data);
+                // Data not available when load is called so we use setTimeout
+                setTimeout(() => {
+                  Highcharts.each(
+                    (this as any).series[0].data,
+                    function (point: any, i: any) {
+                      const labels = ['3σ', '2σ', 'σ', 'μ', 'σ', '2σ', '3σ'];
+                      if (i % pointsInInterval === 0) {
+                        point.update({
+                          color: 'black',
+                          dataLabels: {
+                            enabled: true,
+                            format: labels[Math.floor(i / pointsInInterval)],
+                            overflow: 'none',
+                            crop: false,
+                            y: -2,
+                            style: { fontSize: '13px' },
+                          },
+                        });
+                      }
+                    }
+                  );
+                }, 1000);
+              },
+            },
+          },
+        };
+      })
+    );
   }
 }

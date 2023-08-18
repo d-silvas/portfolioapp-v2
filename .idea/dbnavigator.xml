@@ -37,10 +37,7 @@ commit;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" object-ref="schemas/public/tables/sbux_income_statements" />
-      <object connection-id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" object-ref="schemas/public/tables/sbux_balance_sheets" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="c1496257-3e7d-4fa7-b49b-79f6b767d68b" />
