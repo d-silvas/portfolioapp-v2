@@ -1,6 +1,5 @@
 import { AppState } from '../../store/state';
 import { SbuxDebtAnalysisState } from '../sbux-debt-analysis/store/state';
-import { SbuxPlAnalysisState } from '../sbux-pl-analysis/store/state';
 import { SbuxSegmentInfoAnalysisState } from '../sbux-segment-info-analysis/store/state';
 
 export interface SbuxRootState extends AppState {
@@ -8,7 +7,6 @@ export interface SbuxRootState extends AppState {
 }
 
 export interface SbuxState {
-  plAnalysis: SbuxPlAnalysisState;
   segmentInfoAnalysis: SbuxSegmentInfoAnalysisState;
   debtAnalysis: SbuxDebtAnalysisState;
 }

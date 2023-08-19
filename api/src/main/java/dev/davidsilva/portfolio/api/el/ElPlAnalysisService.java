@@ -31,7 +31,7 @@ public class ElPlAnalysisService {
             // Including impairments and restructuring as SG&A
             plAnalysis.setSga(incomeStatement.getTotalOperatingExpenses());
             // TODO add back D&A from cash flows
-            plAnalysis.setEbitda(incomeStatement.getOperatingIncome());
+            // plAnalysis.setEbitda(incomeStatement.getOperatingIncome());
             plAnalysis.setEbit(incomeStatement.getOperatingIncome());
             plAnalysis.setEbt(incomeStatement.getEarningsBeforeIncomeTaxes());
             plAnalysis.setTaxPaid(incomeStatement.getProvisionForIncomeTaxes());

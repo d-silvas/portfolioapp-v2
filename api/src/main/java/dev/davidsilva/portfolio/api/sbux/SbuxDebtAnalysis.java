@@ -1,6 +1,7 @@
 package dev.davidsilva.portfolio.api.sbux;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import dev.davidsilva.portfolio.api.generic.PlAnalysis;
 import dev.davidsilva.portfolio.dbcore.sbux.SbuxBalanceSheet;
 import dev.davidsilva.portfolio.dbcore.sbux.SbuxFinancialReport;
 import dev.davidsilva.portfolio.dbcore.sbux.SbuxIncomeStatement;
@@ -37,7 +38,7 @@ public class SbuxDebtAnalysis {
     @Getter
     private final Double effectiveInterestRate;
 
-    SbuxDebtAnalysis(SbuxFinancialReport financialReport, SbuxPlAnalysis plAnalysis) {
+    SbuxDebtAnalysis(SbuxFinancialReport financialReport, PlAnalysis plAnalysis) {
         SbuxIncomeStatement incomeStatement = financialReport.getIncomeStatement();
         SbuxBalanceSheet balanceSheet = financialReport.getBalanceSheet();
         this.totalDebt = balanceSheet.getShortTermDebt() + balanceSheet.getCurrentPortionOfLongTermDebt()

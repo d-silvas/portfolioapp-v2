@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FinancialNumberPipe implements PipeTransform {
   static readonly OneBillion = 1000000000;
   static readonly OneMillion = 1000000;
+  static readonly OneThousand = 1000;
 
   constructor(private readonly _decimalPipe: DecimalPipe) {}
 
@@ -24,6 +25,10 @@ export class FinancialNumberPipe implements PipeTransform {
       const millions = numberValue / FinancialNumberPipe.OneMillion;
       if (millions > 0.5 || millions < -0.5) {
         return this._decimalPipe.transform(millions, format) + ' M';
+      }
+      const thousands = numberValue / FinancialNumberPipe.OneThousand;
+      if (thousands > 0.5 || thousands < -0.5) {
+        return this._decimalPipe.transform(thousands, format) + ' K';
       }
       return this._decimalPipe.transform(Number(value), format);
     } catch {

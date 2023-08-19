@@ -20,8 +20,8 @@ public enum FinancialReportPeriod {
     }
 
     @Converter(autoApply = true)
-    public static class FinancialStatementPeriodConverter implements AttributeConverter<FinancialReportPeriod,
-                String> {
+    public static class FinancialReportPeriodConverter implements AttributeConverter<FinancialReportPeriod,
+            String> {
         @Override
         public String convertToDatabaseColumn(FinancialReportPeriod financialReportPeriod) {
             if (financialReportPeriod == null) {

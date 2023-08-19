@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SbuxPlAnalysisComponent } from './sbux-pl-analysis/sbux-pl-analysis.component';
 import { UiModule } from '../ui';
 import { SbuxComponent } from './sbux.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { SbuxPlAnalysisEffects } from './sbux-pl-analysis/store/effects';
 import { SbuxRoutingModule } from './sbux-routing.module';
-import { SbuxPlAnalysisGraphComponent } from './sbux-pl-analysis/sbux-pl-analysis-graph/sbux-pl-analysis-graph.component';
 import { sbuxReducer } from './store/reducer';
 import { SbuxSegmentInfoAnalysisComponent } from './sbux-segment-info-analysis/sbux-segment-info-analysis.component';
 import { SbuxSegmentInfoAnalysisEffects } from './sbux-segment-info-analysis/store/effects';
 import { PlAnalysisModule } from '../pl-analysis/pl-analysis.module';
+import { SbuxRevenueCompositionGraphComponent } from './sbux-segment-info-analysis/sbux-revenue-composition-graph/sbux-revenue-composition-graph.component';
+import { SbuxStoresPerRegionGraphComponent } from './sbux-segment-info-analysis/sbux-stores-per-region-graph/sbux-stores-per-region-graph.component';
+import { SbuxRevenuePerStoreGraphComponent } from './sbux-segment-info-analysis/sbux-revenue-per-store/sbux-revenue-per-store-graph.component';
 
 @NgModule({
   declarations: [
     SbuxComponent,
-    SbuxPlAnalysisComponent,
-    SbuxPlAnalysisGraphComponent,
     SbuxSegmentInfoAnalysisComponent,
+    SbuxRevenueCompositionGraphComponent,
+    SbuxStoresPerRegionGraphComponent,
+    SbuxRevenuePerStoreGraphComponent,
   ],
   imports: [
     CommonModule,
@@ -26,10 +27,7 @@ import { PlAnalysisModule } from '../pl-analysis/pl-analysis.module';
     SbuxRoutingModule,
     PlAnalysisModule,
     StoreModule.forFeature('sbux', sbuxReducer),
-    EffectsModule.forFeature([
-      SbuxPlAnalysisEffects,
-      SbuxSegmentInfoAnalysisEffects,
-    ]),
+    EffectsModule.forFeature([SbuxSegmentInfoAnalysisEffects]),
   ],
 })
 export class SbuxModule {}

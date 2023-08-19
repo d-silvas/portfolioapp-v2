@@ -39,7 +39,7 @@
           "
           [appTableToCsvRawValue]="val"
         >
-          {{ val | percent : "1.2-2" }}
+          {{ val | percent: "1.2-2" }}
         </td>
       </tr>
       <app-table-deltas
@@ -58,7 +58,7 @@
           "
           [appTableToCsvRawValue]="val"
         >
-          {{ val | percent : "1.2-2" }}
+          {{ val | percent: "1.2-2" }}
         </td>
       </tr>
       <app-table-deltas
@@ -83,7 +83,7 @@
           "
           [appTableToCsvRawValue]="val"
         >
-          {{ val | percent : "1.2-2" }}
+          {{ val | percent: "1.2-2" }}
         </td>
       </tr>
       <app-table-deltas
@@ -102,7 +102,7 @@
           "
           [appTableToCsvRawValue]="val"
         >
-          {{ val | percent : "1.2-2" }}
+          {{ val | percent: "1.2-2" }}
         </td>
       </tr>
       <app-table-deltas
@@ -127,7 +127,7 @@
           "
           [appTableToCsvRawValue]="val"
         >
-          {{ val | percent : "1.2-2" }}
+          {{ val | percent: "1.2-2" }}
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
           *ngFor="let val of tableInfo.otherRevenues"
           [appTableToCsvRawValue]="val"
         >
-          {{ val | financialNumber : "1.2-2" }}
+          {{ val | financialNumber: "1.2-2" }}
         </td>
       </tr>
       <tr>
@@ -145,10 +145,20 @@
           *ngFor="let val of tableInfo.otherRevenuesAsProportionOfTotalRevenues"
           [appTableToCsvRawValue]="val"
         >
-          {{ val | percent : "1.2-2" }}
+          {{ val | percent: "1.2-2" }}
         </td>
       </tr>
     </tbody>
   </table>
   <app-table-to-csv-button [table]="dataTable"> </app-table-to-csv-button>
+
+  <app-sbux-revenue-composition-graph
+    [tableInfo]="tableInfo$ | async"
+  ></app-sbux-revenue-composition-graph>
+  <app-sbux-stores-per-region-graph
+    [tableInfo]="tableInfo$ | async"
+  ></app-sbux-stores-per-region-graph>
+  <app-sbux-revenue-per-store-graph
+    [tableInfo]="tableInfo$ | async"
+  ></app-sbux-revenue-per-store-graph>
 </ng-container>

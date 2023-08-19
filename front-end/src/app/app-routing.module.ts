@@ -6,6 +6,10 @@ const routes: Routes = [
     path: 'sbux',
     loadChildren: () => import('./sbux/sbux.module').then((m) => m.SbuxModule),
   },
+  {
+    path: 'el',
+    loadChildren: () => import('./el/el.module').then((m) => m.ElModule),
+  },
 ];
 
 @NgModule({

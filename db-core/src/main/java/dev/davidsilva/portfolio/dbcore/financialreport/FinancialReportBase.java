@@ -11,7 +11,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 /**
- * TODO USE
+ * TODO inherit this one from individual financial reports
  */
 @NoArgsConstructor
 @Getter
