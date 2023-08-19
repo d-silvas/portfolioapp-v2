@@ -1,0 +1,155 @@
+<ng-container *ngIf="tableInfo$ | async as tableInfo">
+  <table #dataTable class="app-table">
+    <thead>
+      <tr>
+        <th>Period</th>
+        <th *ngFor="let period of tableInfo.period">
+          {{ period }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <app-table-deltas
+        [title]="'Revenue'"
+        [data]="tableInfo.netRevenue"
+        [deltas]="tableInfo.netRevenueDelta"
+        [cagrs5y]="tableInfo.netRevenueCagr5"
+        [cagrs10y]="tableInfo.netRevenueCagr10"
+      ></app-table-deltas>
+      <app-table-deltas
+        [title]="'COGS'"
+        [data]="tableInfo.cogs"
+        [deltas]="tableInfo.cogsDelta"
+        [cagrs5y]="tableInfo.cogsCagr5"
+        [cagrs10y]="tableInfo.cogsCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">COGS/Revenue</th>
+        <td
+          *ngFor="let val of tableInfo.cogsAsProportionOfRevenues"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+      <app-table-deltas
+        [title]="'Gross Profit'"
+        [data]="tableInfo.grossProfit"
+        [deltas]="tableInfo.grossProfitDelta"
+        [cagrs5y]="tableInfo.grossProfitCagr5"
+        [cagrs10y]="tableInfo.grossProfitCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">Gross Profit/Revenue</th>
+        <td
+          *ngFor="let val of tableInfo.grossProfitAsProportionOfRevenues"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+      <app-table-deltas
+        [title]="'SG&A'"
+        [data]="tableInfo.sga"
+        [deltas]="tableInfo.sgaDelta"
+        [cagrs5y]="tableInfo.sgaCagr5"
+        [cagrs10y]="tableInfo.sgaCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">SG&A/Revenue</th>
+        <td
+          *ngFor="let val of tableInfo.sgaAsProportionOfRevenues"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+      <app-table-deltas
+        [title]="'EBITDA'"
+        [data]="tableInfo.ebitda"
+        [deltas]="tableInfo.ebitdaDelta"
+        [cagrs5y]="tableInfo.ebitdaCagr5"
+        [cagrs10y]="tableInfo.ebitdaCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">EBITDA/Revenue</th>
+        <td
+          *ngFor="let val of tableInfo.ebitdaAsProportionOfRevenues"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+      <app-table-deltas
+        [title]="'EBIT'"
+        [data]="tableInfo.ebit"
+        [deltas]="tableInfo.ebitDelta"
+        [cagrs5y]="tableInfo.ebitCagr5"
+        [cagrs10y]="tableInfo.ebitCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">EBIT/Revenue</th>
+        <td
+          *ngFor="let val of tableInfo.ebitAsProportionOfRevenues"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+      <app-table-deltas
+        [title]="'EBT'"
+        [data]="tableInfo.ebt"
+        [deltas]="tableInfo.ebtDelta"
+        [cagrs5y]="tableInfo.ebtCagr5"
+        [cagrs10y]="tableInfo.ebtCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">EBT/Revenue</th>
+        <td
+          *ngFor="let val of tableInfo.ebtAsProportionOfRevenues"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+      <app-table-deltas
+        [title]="'Tax Paid'"
+        [data]="tableInfo.taxPaid"
+        [deltas]="tableInfo.taxPaidDelta"
+        [cagrs5y]="tableInfo.taxPaidCagr5"
+        [cagrs10y]="tableInfo.taxPaidCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">Tax Paid/EBT</th>
+        <td
+          *ngFor="let val of tableInfo.taxPaidAsProportionOfEbt"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+      <app-table-deltas
+        [title]="'Net Income'"
+        [data]="tableInfo.netIncome"
+        [deltas]="tableInfo.netIncomeDelta"
+        [cagrs5y]="tableInfo.netIncomeCagr5"
+        [cagrs10y]="tableInfo.netIncomeCagr10"
+      ></app-table-deltas>
+      <tr>
+        <th scope="row">Net Income/Revenue</th>
+        <td
+          *ngFor="let val of tableInfo.netIncomeAsProportionOfRevenues"
+          [appTableToCsvRawValue]="val"
+        >
+          {{ val | percent: "1.2-2" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-table-to-csv-button [table]="dataTable"> </app-table-to-csv-button>
+</ng-container>
+<br />
+
+<app-pl-analysis-graph
+  [plAnalysisTableInfo]="tableInfo$ | async"
+></app-pl-analysis-graph>

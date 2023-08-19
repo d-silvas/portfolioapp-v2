@@ -1,4 +1,4 @@
-package dev.davidsilva.portfolio.api.sbux;
+package dev.davidsilva.portfolio.api.el;
 
 import dev.davidsilva.portfolio.api.generic.PlAnalysis;
 import lombok.AllArgsConstructor;
@@ -13,16 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("sbux/pl-analysis")
+@RequestMapping("el/pl-analysis")
 @AllArgsConstructor
 @Slf4j
-public class SbuxPlAnalysisController {
-    private final SbuxPlAnalysisService sbuxPlAnalysisService;
+public class ElPlAnalysisController {
+    private final ElPlAnalysisService elPlAnalysisService;
 
     @GetMapping
     public ResponseEntity<List<PlAnalysis>> getAllPlAnalyses() {
         try {
-            List<PlAnalysis> plAnalysisList = sbuxPlAnalysisService.findAllYearly();
+            List<PlAnalysis> plAnalysisList = elPlAnalysisService.findAllYearly();
             return new ResponseEntity<>(plAnalysisList, HttpStatus.OK);
         } catch (Exception e) {
             log.error("An error occurred while calculating PL Analysis list", e);

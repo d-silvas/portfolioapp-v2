@@ -11,6 +11,7 @@ import { SbuxPlAnalysisGraphComponent } from './sbux-pl-analysis/sbux-pl-analysi
 import { sbuxReducer } from './store/reducer';
 import { SbuxSegmentInfoAnalysisComponent } from './sbux-segment-info-analysis/sbux-segment-info-analysis.component';
 import { SbuxSegmentInfoAnalysisEffects } from './sbux-segment-info-analysis/store/effects';
+import { PlAnalysisModule } from '../pl-analysis/pl-analysis.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SbuxSegmentInfoAnalysisEffects } from './sbux-segment-info-analysis/sto
     CommonModule,
     UiModule,
     SbuxRoutingModule,
+    PlAnalysisModule,
     StoreModule.forFeature('sbux', sbuxReducer),
     EffectsModule.forFeature([
       SbuxPlAnalysisEffects,
