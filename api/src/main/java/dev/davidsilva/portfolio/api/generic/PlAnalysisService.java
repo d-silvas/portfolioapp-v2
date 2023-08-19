@@ -26,7 +26,7 @@ public class PlAnalysisService {
     /**
      * NOTE: The list should be ordered by end date ascending
      *
-     * @param plAnalysisList The list of PL Analyses without cags calculated
+     * @param plAnalysisList The list of PL Analyses without cagrs calculated
      * @return The same list of PL Analyses, but with the cagrs calculated
      */
     public List<PlAnalysis> calculateCagrs(List<PlAnalysis> plAnalysisList) throws PlAnalysisListOutOfOrderException {
@@ -69,7 +69,7 @@ public class PlAnalysisService {
                 plAnalysis.setNetRevenueCagr10(getCagr10(previousPlAnalysis.getNetRevenue(), plAnalysis.getNetRevenue()));
                 plAnalysis.setCogsCagr10(getCagr10(previousPlAnalysis.getCogs(), plAnalysis.getCogs()));
                 plAnalysis.setGrossProfitCagr10(getCagr10(previousPlAnalysis.getGrossProfit(), plAnalysis.getGrossProfit()));
-                plAnalysis.setRndCagr5(getDelta(previousPlAnalysis.getRnd(), plAnalysis.getRnd()));
+                plAnalysis.setRndCagr10(getDelta(previousPlAnalysis.getRnd(), plAnalysis.getRnd()));
                 plAnalysis.setSgaCagr10(getCagr10(previousPlAnalysis.getSga(), plAnalysis.getSga()));
                 plAnalysis.setEbitdaCagr10(getCagr10(previousPlAnalysis.getEbitda(), plAnalysis.getEbitda()));
                 plAnalysis.setEbitCagr10(getCagr10(previousPlAnalysis.getEbit(), plAnalysis.getEbit()));
