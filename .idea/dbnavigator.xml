@@ -36,6 +36,9 @@ drop table public.sbux_financial_reports;
 commit;]]></console>
     </connection>
   </component>
+  <component name="DBNavigator.Project.DatabaseEditorStateManager">
+    <last-used-providers />
+  </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
@@ -92,13 +95,15 @@ commit;]]></console>
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
           <database-version value="15.3" />
-          <driver-source value="BUILTIN" />
+          <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="5432" />
           <database value="portfoliodb" />
+          <tns-folder value="" />
+          <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="postgres" />
           <deprecated-pwd value="MTIz" />

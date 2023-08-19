@@ -1,9 +1,9 @@
 version: "3"
-name: portfolio-infra
+name: portfoliov2-infra
 services:
   database:
     image: "postgres:15"
-    container_name: portfolio-infra-db
+    container_name: portfoliov2-infra-db
     env_file:
       - ./config/database.env
     ports:
