@@ -51,6 +51,10 @@ export class PlAnalysisTableInfoMapperService {
       netIncomeDelta: [],
       netIncomeCagr5: [],
       netIncomeCagr10: [],
+      dilutedEps: [],
+      dilutedEpsDelta: [],
+      dilutedEpsCagr5: [],
+      dilutedEpsCagr10: [],
     };
     for (const [index, singlePlAnalysis] of plAnalysis.entries()) {
       plAnalysisTableInfo.id.push(singlePlAnalysis.id);
@@ -129,6 +133,16 @@ export class PlAnalysisTableInfoMapperService {
       plAnalysisTableInfo.netIncomeCagr5.push(singlePlAnalysis.netIncomeCagr5);
       plAnalysisTableInfo.netIncomeCagr10.push(
         singlePlAnalysis.netIncomeCagr10,
+      );
+      plAnalysisTableInfo.dilutedEps.push(singlePlAnalysis.dilutedEps);
+      plAnalysisTableInfo.dilutedEpsDelta.push(
+        singlePlAnalysis.dilutedEpsDelta,
+      );
+      plAnalysisTableInfo.dilutedEpsCagr5.push(
+        singlePlAnalysis.dilutedEpsCagr5,
+      );
+      plAnalysisTableInfo.dilutedEpsCagr10.push(
+        singlePlAnalysis.dilutedEpsCagr10,
       );
     }
     return plAnalysisTableInfo;

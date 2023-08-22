@@ -58,6 +58,10 @@ import lombok.Setter;
         "netIncomeDelta",
         "netIncomeCagr5",
         "netIncomeCagr10",
+        "dilutedEps",
+        "dilutedEpsDelta",
+        "dilutedEpsCagr5",
+        "dilutedEpsCagr10"
 })
 @Getter
 @Setter
@@ -114,6 +118,10 @@ public class PlAnalysis {
     private Double netIncomeDelta;
     private Double netIncomeCagr5;
     private Double netIncomeCagr10;
+    private Double dilutedEps;
+    private Double dilutedEpsDelta;
+    private Double dilutedEpsCagr5;
+    private Double dilutedEpsCagr10;
 
     private static boolean isNotNull(Double quantity) {
         return quantity != null;

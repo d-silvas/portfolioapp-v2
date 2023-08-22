@@ -36,6 +36,7 @@ public class ElPlAnalysisService {
             plAnalysis.setEbt(incomeStatement.getEarningsBeforeIncomeTaxes());
             plAnalysis.setTaxPaid(incomeStatement.getProvisionForIncomeTaxes());
             plAnalysis.setNetIncome(incomeStatement.getNetEarnings());
+            plAnalysis.setDilutedEps(incomeStatement.getDilutedEpsAttributableToEl());
 
             plAnalysis.calculateQuantitiesAsProportionOfRevenues();
 

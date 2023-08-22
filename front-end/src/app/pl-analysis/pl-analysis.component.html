@@ -144,6 +144,13 @@
           {{ val | percent: "1.2-2" }}
         </td>
       </tr>
+      <app-table-deltas
+        [title]="'Diluted EPS'"
+        [data]="tableInfo.dilutedEps"
+        [deltas]="tableInfo.dilutedEpsDelta"
+        [cagrs5y]="tableInfo.dilutedEpsCagr5"
+        [cagrs10y]="tableInfo.dilutedEpsCagr10"
+      ></app-table-deltas>
     </tbody>
   </table>
   <app-table-to-csv-button [table]="dataTable"> </app-table-to-csv-button>

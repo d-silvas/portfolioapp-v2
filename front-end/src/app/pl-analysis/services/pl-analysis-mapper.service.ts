@@ -54,6 +54,10 @@ export class PlAnalysisMapperService {
       netIncomeDelta: plAnalysisDto.netIncomeDelta,
       netIncomeCagr5: plAnalysisDto.netIncomeCagr5,
       netIncomeCagr10: plAnalysisDto.netIncomeCagr10,
+      dilutedEps: plAnalysisDto.dilutedEps,
+      dilutedEpsDelta: plAnalysisDto.dilutedEpsDelta,
+      dilutedEpsCagr5: plAnalysisDto.dilutedEpsCagr5,
+      dilutedEpsCagr10: plAnalysisDto.dilutedEpsCagr10,
     };
   }
 }

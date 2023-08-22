@@ -38,6 +38,7 @@ public class SbuxPlAnalysisService {
             plAnalysis.setEbt(incomeStatement.getEarningsBeforeIncomeTaxes());
             plAnalysis.setTaxPaid(incomeStatement.getIncomeTaxExpense());
             plAnalysis.setNetIncome(incomeStatement.getNetEarnings());
+            plAnalysis.setDilutedEps(incomeStatement.getEpsDiluted());
             plAnalysis.calculateQuantitiesAsProportionOfRevenues();
 
             plAnalysisList.add(plAnalysis);

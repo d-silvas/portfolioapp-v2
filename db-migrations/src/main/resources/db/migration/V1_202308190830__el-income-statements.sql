@@ -220,4 +220,124 @@ INSERT INTO public.el_income_statements (
     3.35, -- diluted_eps_attributable_to_el
     367.1 * CAST(1000000 AS FLOAT8), -- weighted_avg_common_shares_outstanding_basic
     373.0 * CAST(1000000 AS FLOAT8) -- weighted_avg_common_shares_outstanding_diluted
+), (
+    8, -- id
+    8, -- financial_report_id
+    11262 * CAST(1000000 AS FLOAT8), -- net_sales
+    2181 * CAST(1000000 AS FLOAT8), -- cogs
+    9081 * CAST(1000000 AS FLOAT8), -- gross_profit
+    7338 * CAST(1000000 AS FLOAT8), -- sga
+    133 * CAST(1000000 AS FLOAT8), -- restructuring_and_other_charges
+    0 * CAST(1000000 AS FLOAT8), -- goodwill_impairment
+    0 * CAST(1000000 AS FLOAT8), -- impairment_of_other_intangible_and_long_lived_assets
+    7471 * CAST(1000000 AS FLOAT8), -- total_operating_expenses
+    1610 * CAST(1000000 AS FLOAT8), -- operating_income
+    71 * CAST(1000000 AS FLOAT8), -- interest_expense
+    16 * CAST(1000000 AS FLOAT8), -- interest_income_and_investment_income_net
+    0 * CAST(1000000 AS FLOAT8), -- other_components_of_net_periodic_benefit_cost
+    0 * CAST(1000000 AS FLOAT8), -- other_income_net
+    1555 * CAST(1000000 AS FLOAT8), -- earnings_before_income_taxes
+    434 * CAST(1000000 AS FLOAT8), -- provision_for_income_taxes
+    1121 * CAST(1000000 AS FLOAT8), -- net_earnings
+    1115 * CAST(1000000 AS FLOAT8), -- net_earnings_attributable_to_el
+    3.01, -- basic_eps_attributable_to_el
+    2.96, -- diluted_eps_attributable_to_el
+    370.0 * CAST(1000000 AS FLOAT8), -- weighted_avg_common_shares_outstanding_basic
+    376.6 * CAST(1000000 AS FLOAT8) -- weighted_avg_common_shares_outstanding_diluted
+), (
+    9, -- id
+    9, -- financial_report_id
+    10780 * CAST(1000000 AS FLOAT8), -- net_sales
+    2100 * CAST(1000000 AS FLOAT8), -- cogs
+    8680 * CAST(1000000 AS FLOAT8), -- gross_profit
+    7074 * CAST(1000000 AS FLOAT8), -- sga
+    0 * CAST(1000000 AS FLOAT8), -- restructuring_and_other_charges
+    0 * CAST(1000000 AS FLOAT8), -- goodwill_impairment
+    0 * CAST(1000000 AS FLOAT8), -- impairment_of_other_intangible_and_long_lived_assets
+    7074 * CAST(1000000 AS FLOAT8), -- total_operating_expenses
+    1606 * CAST(1000000 AS FLOAT8), -- operating_income
+    60 * CAST(1000000 AS FLOAT8), -- interest_expense
+    15 * CAST(1000000 AS FLOAT8), -- interest_income_and_investment_income_net
+    0 * CAST(1000000 AS FLOAT8), -- other_components_of_net_periodic_benefit_cost
+    0 * CAST(1000000 AS FLOAT8), -- other_income_net
+    1561 * CAST(1000000 AS FLOAT8), -- earnings_before_income_taxes
+    467 * CAST(1000000 AS FLOAT8), -- provision_for_income_taxes
+    1094 * CAST(1000000 AS FLOAT8), -- net_earnings
+    1089 * CAST(1000000 AS FLOAT8), -- net_earnings_attributable_to_el
+    2.87, -- basic_eps_attributable_to_el
+    2.82, -- diluted_eps_attributable_to_el
+    379.3 * CAST(1000000 AS FLOAT8), -- weighted_avg_common_shares_outstanding_basic
+    385.7 * CAST(1000000 AS FLOAT8) -- weighted_avg_common_shares_outstanding_diluted
+), (
+    10, -- id
+    10, -- financial_report_id
+    10968.8 * CAST(1000000 AS FLOAT8), -- net_sales
+    2158.2 * CAST(1000000 AS FLOAT8), -- cogs
+    8810.6 * CAST(1000000 AS FLOAT8), -- gross_profit
+    6985.9 * CAST(1000000 AS FLOAT8), -- sga
+    -2.9 * CAST(1000000 AS FLOAT8), -- restructuring_and_other_charges
+    0 * CAST(1000000 AS FLOAT8), -- goodwill_impairment
+    0 * CAST(1000000 AS FLOAT8), -- impairment_of_other_intangible_and_long_lived_assets
+    6983 * CAST(1000000 AS FLOAT8), -- total_operating_expenses
+    1827.6 * CAST(1000000 AS FLOAT8), -- operating_income
+    59.4 * CAST(1000000 AS FLOAT8), -- interest_expense
+    8.6 * CAST(1000000 AS FLOAT8), -- interest_income_and_investment_income_net
+    0 * CAST(1000000 AS FLOAT8), -- other_components_of_net_periodic_benefit_cost
+    0 * CAST(1000000 AS FLOAT8), -- other_income_net
+    1776.8 * CAST(1000000 AS FLOAT8), -- earnings_before_income_taxes
+    567.7 * CAST(1000000 AS FLOAT8), -- provision_for_income_taxes
+    1209.1 * CAST(1000000 AS FLOAT8), -- net_earnings
+    1204.1 * CAST(1000000 AS FLOAT8), -- net_earnings_attributable_to_el
+    3.12, -- basic_eps_attributable_to_el
+    3.06, -- diluted_eps_attributable_to_el
+    386.2 * CAST(1000000 AS FLOAT8), -- weighted_avg_common_shares_outstanding_basic
+    393.1 * CAST(1000000 AS FLOAT8) -- weighted_avg_common_shares_outstanding_diluted
+), (
+    11, -- id
+    11, -- financial_report_id
+    10181.7 * CAST(1000000 AS FLOAT8), -- net_sales
+    2025.9 * CAST(1000000 AS FLOAT8), -- cogs
+    8155.8 * CAST(1000000 AS FLOAT8), -- gross_profit
+    6597 * CAST(1000000 AS FLOAT8), -- sga
+    15.1 * CAST(1000000 AS FLOAT8), -- restructuring_and_other_charges
+    9.6 * CAST(1000000 AS FLOAT8), -- goodwill_impairment
+    8.1 * CAST(1000000 AS FLOAT8), -- impairment_of_other_intangible_and_long_lived_assets
+    6629.8 * CAST(1000000 AS FLOAT8), -- total_operating_expenses
+    1526 * CAST(1000000 AS FLOAT8), -- operating_income
+    (63.1 + 19.1) * CAST(1000000 AS FLOAT8), -- interest_expense
+    8.3 * CAST(1000000 AS FLOAT8), -- interest_income_and_investment_income_net
+    0 * CAST(1000000 AS FLOAT8), -- other_components_of_net_periodic_benefit_cost
+    23.1 * CAST(1000000 AS FLOAT8), -- other_income_net
+    1475.2 * CAST(1000000 AS FLOAT8), -- earnings_before_income_taxes
+    451.4 * CAST(1000000 AS FLOAT8), -- provision_for_income_taxes
+    1023.8 * CAST(1000000 AS FLOAT8), -- net_earnings
+    1019.8 * CAST(1000000 AS FLOAT8), -- net_earnings_attributable_to_el
+    2.63, -- basic_eps_attributable_to_el
+    2.58, -- diluted_eps_attributable_to_el
+    387.6 * CAST(1000000 AS FLOAT8), -- weighted_avg_common_shares_outstanding_basic
+    394.9 * CAST(1000000 AS FLOAT8) -- weighted_avg_common_shares_outstanding_diluted
+), (
+    12, -- id
+    12, -- financial_report_id
+    9713.6 * CAST(1000000 AS FLOAT8), -- net_sales
+    1995.8 * CAST(1000000 AS FLOAT8), -- cogs
+    7717.8 * CAST(1000000 AS FLOAT8), -- gross_profit
+    6324.8 * CAST(1000000 AS FLOAT8), -- sga
+    59.6 * CAST(1000000 AS FLOAT8), -- restructuring_and_other_charges
+    0 * CAST(1000000 AS FLOAT8), -- goodwill_impairment
+    21.7 * CAST(1000000 AS FLOAT8), -- impairment_of_other_intangible_and_long_lived_assets
+    6406.1 * CAST(1000000 AS FLOAT8), -- total_operating_expenses
+    1311.7 * CAST(1000000 AS FLOAT8), -- operating_income
+    61.1 * CAST(1000000 AS FLOAT8), -- interest_expense
+    0 * CAST(1000000 AS FLOAT8), -- interest_income_and_investment_income_net
+    0 * CAST(1000000 AS FLOAT8), -- other_components_of_net_periodic_benefit_cost
+    10.5 * CAST(1000000 AS FLOAT8), -- other_income_net
+    1261.1 * CAST(1000000 AS FLOAT8), -- earnings_before_income_taxes
+    400.6 * CAST(1000000 AS FLOAT8), -- provision_for_income_taxes
+    860.5 * CAST(1000000 AS FLOAT8), -- net_earnings
+    856.9 * CAST(1000000 AS FLOAT8), -- net_earnings_attributable_to_el
+    2.20, -- basic_eps_attributable_to_el
+    2.16, -- diluted_eps_attributable_to_el
+    388.7 * CAST(1000000 AS FLOAT8), -- weighted_avg_common_shares_outstanding_basic
+    397 * CAST(1000000 AS FLOAT8) -- weighted_avg_common_shares_outstanding_diluted
 );

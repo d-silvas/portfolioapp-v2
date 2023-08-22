@@ -50,6 +50,7 @@ public class PlAnalysisService {
                 plAnalysis.setEbtDelta(getDelta(previousPlAnalysis.getEbt(), plAnalysis.getEbt()));
                 plAnalysis.setTaxPaidDelta(getDelta(previousPlAnalysis.getTaxPaid(), plAnalysis.getTaxPaid()));
                 plAnalysis.setNetIncomeDelta(getDelta(previousPlAnalysis.getNetIncome(), plAnalysis.getNetIncome()));
+                plAnalysis.setDilutedEpsDelta(getDelta(previousPlAnalysis.getDilutedEps(), plAnalysis.getDilutedEps()));
             }
             if (index >= 5) {
                 PlAnalysis previousPlAnalysis = plAnalysisList.get(index - 5);
@@ -63,6 +64,7 @@ public class PlAnalysisService {
                 plAnalysis.setEbtCagr5(getCagr5(previousPlAnalysis.getEbt(), plAnalysis.getEbt()));
                 plAnalysis.setTaxPaidCagr5(getCagr5(previousPlAnalysis.getTaxPaid(), plAnalysis.getTaxPaid()));
                 plAnalysis.setNetIncomeCagr5(getCagr5(previousPlAnalysis.getNetIncome(), plAnalysis.getNetIncome()));
+                plAnalysis.setDilutedEpsCagr5(getCagr5(previousPlAnalysis.getDilutedEps(), plAnalysis.getDilutedEps()));
             }
             if (index >= 10) {
                 PlAnalysis previousPlAnalysis = plAnalysisList.get(index - 10);
@@ -76,6 +78,7 @@ public class PlAnalysisService {
                 plAnalysis.setEbtCagr10(getCagr10(previousPlAnalysis.getEbt(), plAnalysis.getEbt()));
                 plAnalysis.setTaxPaidCagr10(getCagr10(previousPlAnalysis.getTaxPaid(), plAnalysis.getTaxPaid()));
                 plAnalysis.setNetIncomeCagr10(getCagr10(previousPlAnalysis.getNetIncome(), plAnalysis.getNetIncome()));
+                plAnalysis.setDilutedEpsCagr10(getCagr10(previousPlAnalysis.getDilutedEps(), plAnalysis.getDilutedEps()));
             }
         }
         return plAnalysisList;

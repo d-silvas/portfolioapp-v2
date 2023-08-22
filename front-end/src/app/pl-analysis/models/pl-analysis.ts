@@ -49,4 +49,8 @@ export interface PlAnalysis {
   netIncomeDelta: number;
   netIncomeCagr5: number;
   netIncomeCagr10: number;
+  dilutedEps: number;
+  dilutedEpsDelta: number;
+  dilutedEpsCagr5: number;
+  dilutedEpsCagr10: number;
 }
