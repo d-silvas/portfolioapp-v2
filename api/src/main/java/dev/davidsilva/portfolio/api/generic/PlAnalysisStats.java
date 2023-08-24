@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import dev.davidsilva.portfolio.api.math.Stats;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @JsonPropertyOrder({
         "netRevenueDeltaStats",
-//        "netRevenueCagr5",
-//        "cogsDelta",
-//        "cogsAsProportionOfRevenues",
-//        "cogsCagr5",
+        "netRevenueCagr5Stats",
+        "cogsDeltaStats",
+        "cogsAsProportionOfRevenuesStats",
+        "cogsCagr5Stats",
 //        "grossProfitAsProportionOfRevenues",
 //        "grossProfitDelta",
 //        "grossProfitCagr5",
@@ -44,9 +44,30 @@ import java.util.Objects;
 @Getter
 public class PlAnalysisStats {
     private final Stats netRevenueDeltaStats;
+    private final Stats netRevenueCagr5Stats;
+    private final Stats cogsDeltaStats;
+    private final Stats cogsAsProportionOfRevenuesStats;
+    private final Stats cogsCagr5Stats;
 
     public PlAnalysisStats(List<PlAnalysisWithCagrs> plAnalysisList) {
-        List<Double> allNetRevenueDeltas = plAnalysisList.stream().map(PlAnalysisWithCagrs::getNetRevenueDelta).filter(Objects::nonNull).toList();
+        List<Double> allNetRevenueDeltas = new ArrayList<>();
+        List<Double> allNetRevenueCagr5s = new ArrayList<>();
+        List<Double> allCogsDeltas = new ArrayList<>();
+        List<Double> allCogsAsProportionOfRevenues = new ArrayList<>();
+        List<Double> allCogsCagr5s = new ArrayList<>();
+
+        plAnalysisList.stream().forEachOrdered(plAnalysisWithCagrs -> {
+            allNetRevenueDeltas.add(plAnalysisWithCagrs.getNetRevenueDelta());
+            allNetRevenueCagr5s.add(plAnalysisWithCagrs.getNetRevenueCagr5());
+            allCogsDeltas.add(plAnalysisWithCagrs.getCogsDelta());
+            allCogsAsProportionOfRevenues.add(plAnalysisWithCagrs.getCogsAsProportionOfRevenues());
+            allCogsCagr5s.add(plAnalysisWithCagrs.getCogsCagr5());
+        });
+
         this.netRevenueDeltaStats = new Stats(allNetRevenueDeltas);
+        this.netRevenueCagr5Stats = new Stats(allNetRevenueCagr5s);
+        this.cogsDeltaStats = new Stats(allCogsDeltas);
+        this.cogsAsProportionOfRevenuesStats = new Stats(allCogsAsProportionOfRevenues);
+        this.cogsCagr5Stats = new Stats(allCogsCagr5s);
     }
 }

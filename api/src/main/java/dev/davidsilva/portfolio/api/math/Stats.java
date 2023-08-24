@@ -5,13 +5,13 @@ import lombok.Getter;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import java.util.List;
+import java.util.Objects;
 
 @JsonPropertyOrder({
         "mean",
         "median",
         "variance",
         "percentile25",
-        "percentile50",
         "percentile75",
         "min",
         "max"
@@ -27,11 +27,9 @@ public class Stats {
     private final Double max;
 
     public Stats(List<Double> data) {
-        this(data.stream().mapToDouble(Double::doubleValue).toArray());
-    }
+        double[] dataAsDoubleArray = data.stream().filter(Objects::nonNull).mapToDouble(Double::doubleValue).toArray();
 
-    public Stats(double[] data) {
-        DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics(data);
+        DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics(dataAsDoubleArray);
         this.mean = descriptiveStatistics.getMean();
         this.median = descriptiveStatistics.getPercentile(50);
         this.variance = descriptiveStatistics.getVariance();

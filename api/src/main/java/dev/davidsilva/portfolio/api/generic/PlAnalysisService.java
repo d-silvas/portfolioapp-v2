@@ -83,4 +83,10 @@ public class PlAnalysisService {
         }
         return plAnalysisList;
     }
+
+    public PlAnalysisListWithStats createPlAnalysisListWithStats(List<PlAnalysisWithCagrs> plAnalysisList) throws Exception {
+        List<PlAnalysisWithCagrs> plAnalysisWithCagrsList = this.calculateCagrs(plAnalysisList);
+        PlAnalysisStats plAnalysisStats = new PlAnalysisStats(plAnalysisWithCagrsList);
+        return new PlAnalysisListWithStats(plAnalysisWithCagrsList, plAnalysisStats);
+    }
 }
