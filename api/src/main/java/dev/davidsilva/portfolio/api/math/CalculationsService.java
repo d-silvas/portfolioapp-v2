@@ -1,4 +1,4 @@
-package dev.davidsilva.portfolio.api.utils;
+package dev.davidsilva.portfolio.api.math;
 
 import org.springframework.stereotype.Service;
 

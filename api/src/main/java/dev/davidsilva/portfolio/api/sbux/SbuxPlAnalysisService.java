@@ -2,6 +2,7 @@ package dev.davidsilva.portfolio.api.sbux;
 
 import dev.davidsilva.portfolio.api.generic.PlAnalysis;
 import dev.davidsilva.portfolio.api.generic.PlAnalysisService;
+import dev.davidsilva.portfolio.api.generic.PlAnalysisWithCagrs;
 import dev.davidsilva.portfolio.dbcore.sbux.SbuxFinancialReport;
 import dev.davidsilva.portfolio.dbcore.sbux.SbuxIncomeStatement;
 import lombok.AllArgsConstructor;
@@ -16,34 +17,48 @@ public class SbuxPlAnalysisService {
     private final SbuxFinancialReportService sbuxFinancialReportService;
     private final PlAnalysisService plAnalysisService;
 
-    public List<PlAnalysis> findAllYearly() throws Exception {
+    public List<PlAnalysis> findAllYearly() {
         List<SbuxFinancialReport> financialReports = sbuxFinancialReportService.findAllYearlyOrderByEndDateAsc();
         List<PlAnalysis> plAnalysisList = new ArrayList<>();
         for (SbuxFinancialReport financialReport : financialReports) {
-            SbuxIncomeStatement incomeStatement = financialReport.getIncomeStatement();
-
             PlAnalysis plAnalysis = new PlAnalysis();
-            plAnalysis.setCalendarYear(financialReport.getCalendarYear());
-            plAnalysis.setPeriod(financialReport.getPeriod());
-            plAnalysis.setNetRevenue(incomeStatement.getNetRevenues());
-            Double cogs = incomeStatement.getProductAndDistributionCosts() +
-                    incomeStatement.getStoreOperatingExpenses() +
-                    incomeStatement.getOtherOperatingExpenses() +
-                    incomeStatement.getDepreciationAndAmortizationExpenses();
-            plAnalysis.setCogs(cogs);
-            plAnalysis.setGrossProfit(incomeStatement.getNetRevenues() - cogs);
-            plAnalysis.setSga(incomeStatement.getGeneralAndAdministrativeExpenses() + incomeStatement.getRestructuringAndImpairments());
-            plAnalysis.setEbitda(incomeStatement.getOperatingIncome() + incomeStatement.getDepreciationAndAmortizationExpenses());
-            plAnalysis.setEbit(incomeStatement.getOperatingIncome());
-            plAnalysis.setEbt(incomeStatement.getEarningsBeforeIncomeTaxes());
-            plAnalysis.setTaxPaid(incomeStatement.getIncomeTaxExpense());
-            plAnalysis.setNetIncome(incomeStatement.getNetEarnings());
-            plAnalysis.setDilutedEps(incomeStatement.getEpsDiluted());
-            plAnalysis.calculateQuantitiesAsProportionOfRevenues();
+            fillPlAnalysisProperties(plAnalysis, financialReport);
+            plAnalysisList.add(plAnalysis);
+        }
 
+        return plAnalysisList;
+    }
+
+    public List<PlAnalysisWithCagrs> findAllYearlyWithCagrs() throws Exception {
+        List<SbuxFinancialReport> financialReports = sbuxFinancialReportService.findAllYearlyOrderByEndDateAsc();
+        List<PlAnalysisWithCagrs> plAnalysisList = new ArrayList<>();
+        for (SbuxFinancialReport financialReport : financialReports) {
+            PlAnalysisWithCagrs plAnalysis = new PlAnalysisWithCagrs();
+            fillPlAnalysisProperties(plAnalysis, financialReport);
             plAnalysisList.add(plAnalysis);
         }
 
         return plAnalysisService.calculateCagrs(plAnalysisList);
+    }
+
+    private void fillPlAnalysisProperties(PlAnalysis initialPlAnalysis, SbuxFinancialReport financialReport) {
+        SbuxIncomeStatement incomeStatement = financialReport.getIncomeStatement();
+        initialPlAnalysis.setCalendarYear(financialReport.getCalendarYear());
+        initialPlAnalysis.setPeriod(financialReport.getPeriod());
+        initialPlAnalysis.setNetRevenue(incomeStatement.getNetRevenues());
+        Double cogs = incomeStatement.getProductAndDistributionCosts() +
+                incomeStatement.getStoreOperatingExpenses() +
+                incomeStatement.getOtherOperatingExpenses() +
+                incomeStatement.getDepreciationAndAmortizationExpenses();
+        initialPlAnalysis.setCogs(cogs);
+        initialPlAnalysis.setGrossProfit(incomeStatement.getNetRevenues() - cogs);
+        initialPlAnalysis.setSga(incomeStatement.getGeneralAndAdministrativeExpenses() + incomeStatement.getRestructuringAndImpairments());
+        initialPlAnalysis.setEbitda(incomeStatement.getOperatingIncome() + incomeStatement.getDepreciationAndAmortizationExpenses());
+        initialPlAnalysis.setEbit(incomeStatement.getOperatingIncome());
+        initialPlAnalysis.setEbt(incomeStatement.getEarningsBeforeIncomeTaxes());
+        initialPlAnalysis.setTaxPaid(incomeStatement.getIncomeTaxExpense());
+        initialPlAnalysis.setNetIncome(incomeStatement.getNetEarnings());
+        initialPlAnalysis.setDilutedEps(incomeStatement.getEpsDiluted());
+        initialPlAnalysis.calculateQuantitiesAsProportionOfRevenues();
     }
 }

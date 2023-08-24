@@ -1,6 +1,6 @@
 package dev.davidsilva.portfolio.api.sbux;
 
-import dev.davidsilva.portfolio.api.utils.CalculationsService;
+import dev.davidsilva.portfolio.api.math.CalculationsService;
 import dev.davidsilva.portfolio.dbcore.sbux.SbuxFinancialReport;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

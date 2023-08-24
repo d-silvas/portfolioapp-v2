@@ -1,6 +1,6 @@
 package dev.davidsilva.portfolio.api.generic;
 
-import dev.davidsilva.portfolio.api.utils.CalculationsService;
+import dev.davidsilva.portfolio.api.math.CalculationsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,11 +29,11 @@ public class PlAnalysisService {
      * @param plAnalysisList The list of PL Analyses without cagrs calculated
      * @return The same list of PL Analyses, but with the cagrs calculated
      */
-    public List<PlAnalysis> calculateCagrs(List<PlAnalysis> plAnalysisList) throws PlAnalysisListOutOfOrderException {
+    public List<PlAnalysisWithCagrs> calculateCagrs(List<PlAnalysisWithCagrs> plAnalysisList) throws PlAnalysisListOutOfOrderException {
         for (int index = 0; index < plAnalysisList.size(); index++) {
-            PlAnalysis plAnalysis = plAnalysisList.get(index);
+            PlAnalysisWithCagrs plAnalysis = plAnalysisList.get(index);
             if (index >= 1) {
-                PlAnalysis previousPlAnalysis = plAnalysisList.get(index - 1);
+                PlAnalysisWithCagrs previousPlAnalysis = plAnalysisList.get(index - 1);
                 // Check order is correct
                 Integer previousPlAnalysisCalendarYear = previousPlAnalysis.getCalendarYear();
                 Integer currentPlAnalysisCalendarYear = plAnalysis.getCalendarYear();
@@ -53,7 +53,7 @@ public class PlAnalysisService {
                 plAnalysis.setDilutedEpsDelta(getDelta(previousPlAnalysis.getDilutedEps(), plAnalysis.getDilutedEps()));
             }
             if (index >= 5) {
-                PlAnalysis previousPlAnalysis = plAnalysisList.get(index - 5);
+                PlAnalysisWithCagrs previousPlAnalysis = plAnalysisList.get(index - 5);
                 plAnalysis.setNetRevenueCagr5(getCagr5(previousPlAnalysis.getNetRevenue(), plAnalysis.getNetRevenue()));
                 plAnalysis.setCogsCagr5(getCagr5(previousPlAnalysis.getCogs(), plAnalysis.getCogs()));
                 plAnalysis.setGrossProfitCagr5(getCagr5(previousPlAnalysis.getGrossProfit(), plAnalysis.getGrossProfit()));
@@ -67,7 +67,7 @@ public class PlAnalysisService {
                 plAnalysis.setDilutedEpsCagr5(getCagr5(previousPlAnalysis.getDilutedEps(), plAnalysis.getDilutedEps()));
             }
             if (index >= 10) {
-                PlAnalysis previousPlAnalysis = plAnalysisList.get(index - 10);
+                PlAnalysisWithCagrs previousPlAnalysis = plAnalysisList.get(index - 10);
                 plAnalysis.setNetRevenueCagr10(getCagr10(previousPlAnalysis.getNetRevenue(), plAnalysis.getNetRevenue()));
                 plAnalysis.setCogsCagr10(getCagr10(previousPlAnalysis.getCogs(), plAnalysis.getCogs()));
                 plAnalysis.setGrossProfitCagr10(getCagr10(previousPlAnalysis.getGrossProfit(), plAnalysis.getGrossProfit()));

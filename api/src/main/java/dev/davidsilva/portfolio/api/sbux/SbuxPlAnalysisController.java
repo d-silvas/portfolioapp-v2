@@ -1,6 +1,6 @@
 package dev.davidsilva.portfolio.api.sbux;
 
-import dev.davidsilva.portfolio.api.generic.PlAnalysis;
+import dev.davidsilva.portfolio.api.generic.PlAnalysisWithCagrs;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,9 +20,9 @@ public class SbuxPlAnalysisController {
     private final SbuxPlAnalysisService sbuxPlAnalysisService;
 
     @GetMapping
-    public ResponseEntity<List<PlAnalysis>> getAllPlAnalyses() {
+    public ResponseEntity<List<PlAnalysisWithCagrs>> getAllPlAnalyses() {
         try {
-            List<PlAnalysis> plAnalysisList = sbuxPlAnalysisService.findAllYearly();
+            List<PlAnalysisWithCagrs> plAnalysisList = sbuxPlAnalysisService.findAllYearlyWithCagrs();
             return new ResponseEntity<>(plAnalysisList, HttpStatus.OK);
         } catch (Exception e) {
             log.error("An error occurred while calculating PL Analysis list", e);
