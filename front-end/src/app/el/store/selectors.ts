@@ -1,6 +1,6 @@
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { ElState } from './state';
+import type { ElState } from './state';
 
 const getElFeatureState = createFeatureSelector<ElState>('el');
 
@@ -8,3 +8,8 @@ const getElFeatureState = createFeatureSelector<ElState>('el');
 //   getElFeatureState,
 //   (state) => state.segmentInfoAnalysis,
 // );
+
+export const getElFinancialReportsState = createSelector(
+  getElFeatureState,
+  (state) => state.financialReports,
+);

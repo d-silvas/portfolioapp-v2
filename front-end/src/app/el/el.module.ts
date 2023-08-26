@@ -6,16 +6,19 @@ import { StoreModule } from '@ngrx/store';
 import { ElRoutingModule } from './el-routing.module';
 import { elReducer } from './store/reducer';
 import { PlAnalysisModule } from '../pl-analysis/pl-analysis.module';
+import { ElIncomeStatementsComponent } from './el-financial-reports/el-income-statements/el-income-statements.component';
+import { ElFinancialReportsEffects } from './el-financial-reports/store/effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
-  declarations: [ElComponent],
+  declarations: [ElComponent, ElIncomeStatementsComponent],
   imports: [
     CommonModule,
     UiModule,
     ElRoutingModule,
     PlAnalysisModule,
     StoreModule.forFeature('el', elReducer),
-    // EffectsModule.forFeature([SbuxSegmentInfoAnalysisEffects]),
+    EffectsModule.forFeature([ElFinancialReportsEffects]),
   ],
 })
 export class ElModule {}

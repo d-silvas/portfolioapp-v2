@@ -12,7 +12,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { TableDeltasModule } from './table-deltas/table-deltas.module';
 import { PipesModule } from './pipes/pipes.module';
-import { TableToCsvModule } from '../table-to-csv/table-to-csv.module';
+import { TableToCsvModule } from './table-to-csv/table-to-csv.module';
+import { TableModule } from './table/table.module';
 
 @NgModule({
   imports: [CommonModule],
@@ -29,8 +30,8 @@ import { TableToCsvModule } from '../table-to-csv/table-to-csv.module';
     MatTabsModule,
     PipesModule,
     TableDeltasModule,
-    // TODO move ??
     TableToCsvModule,
+    TableModule,
   ],
 })
 export class UiModule {}

@@ -1,0 +1,233 @@
+<div class="el-income-statements">
+  <table [appTable]="'asReported'">
+    <thead>
+      <tr appTableElementBold>
+        <th scope="row">FY</th>
+        <th *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{ elFinancialReport.calendarYear }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row" appTableElementBold>Net sales</th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementDollarSign
+        >
+          {{ elFinancialReport.incomeStatement.netSales | millions }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Cost of sales</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{ elFinancialReport.incomeStatement.cogs | millions }}
+        </td>
+      </tr>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row" appTableElementBold>Gross profit</th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementBorderBottom
+          appTableElementBorderTop
+        >
+          {{ elFinancialReport.incomeStatement.grossProfit | millions }}
+        </td>
+      </tr>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row" appTableElementBold>Operating Expenses</th>
+        <td [colSpan]="(elFinancialReports$ | async)?.length"></td>
+      </tr>
+      <tr>
+        <th scope="row">Selling, general and administrative</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{ elFinancialReport.incomeStatement.sga | millions }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Restructuring and other charges</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{
+            elFinancialReport.incomeStatement.restructuringAndOtherCharges
+              | millions
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Goodwill Impairment</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{ elFinancialReport.incomeStatement.goodwillImpairment | millions }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Impairment of other intangible and long-lived assets
+        </th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{
+            elFinancialReport.incomeStatement
+              .impairmentOfOtherIntangibleAndLongLivedAssets | millions
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" appTableElementBold>Total operating expenses</th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementBorderTop
+          appTableElementBorderBottom
+        >
+          {{
+            elFinancialReport.incomeStatement.totalOperatingExpenses | millions
+          }}
+        </td>
+      </tr>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row">Interest expense</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{ elFinancialReport.incomeStatement.interestExpense | millions }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Interest income and investment income, net</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{
+            elFinancialReport.incomeStatement
+              .interestIncomeAndInvestmentIncomeNet | millions
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Other components of net periodic benefit cost</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{
+            elFinancialReport.incomeStatement
+              .otherComponentsOfNetPeriodicBenefitCost | millions
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Other income, net</th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementBorderBottom
+        >
+          {{ elFinancialReport.incomeStatement.otherIncomeNet | millions }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" appTableElementBold>Earnings before income taxes</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{
+            elFinancialReport.incomeStatement.earningsBeforeIncomeTaxes
+              | millions
+          }}
+        </td>
+      </tr>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row">Provision for income taxes</th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementBorderBottom
+        >
+          {{
+            elFinancialReport.incomeStatement.provisionForIncomeTaxes | millions
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row" appTableElementBold>Net earnings</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{ elFinancialReport.incomeStatement.netEarnings | millions }}
+        </td>
+      </tr>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row" appTableElementBold>
+          Net earnings attributable to The Estée Lauder Companies Inc.
+        </th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementBorderTop
+          appTableElementDoubleBorderBottom
+          appTableElementDollarSign
+        >
+          {{
+            elFinancialReport.incomeStatement.netEarningsAttributableToEl
+              | millions
+          }}
+        </td>
+      </tr>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row" appTableElementBold>
+          Net earnings attributable to The Estée Lauder Companies Inc. per
+          common share
+        </th>
+        <td [colSpan]="(elFinancialReports$ | async)?.length"></td>
+      </tr>
+      <tr>
+        <th scope="row">Basic</th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementDoubleBorderBottom
+          appTableElementDollarSign
+        >
+          {{
+            elFinancialReport.incomeStatement.basicEpsAttributableToEl
+              | financialNumber: "1.2-2"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Diluted</th>
+        <td
+          *ngFor="let elFinancialReport of elFinancialReports$ | async"
+          appTableElementDoubleBorderBottom
+          appTableElementDollarSign
+        >
+          {{
+            elFinancialReport.incomeStatement.dilutedEpsAttributableToEl
+              | financialNumber: "1.2-2"
+          }}
+        </td>
+      </tr>
+      <ng-container *ngTemplateOutlet="emptyRow"></ng-container>
+      <tr>
+        <th scope="row" appTableElementBold>
+          Weighted-average common shares outstanding
+        </th>
+        <td [colSpan]="(elFinancialReports$ | async)?.length"></td>
+      </tr>
+      <tr>
+        <th scope="row">Basic</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{
+            elFinancialReport.incomeStatement
+              .weightedAverageCommonSharesOutstandingBasic | millions: "1.1-1"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Diluted</th>
+        <td *ngFor="let elFinancialReport of elFinancialReports$ | async">
+          {{
+            elFinancialReport.incomeStatement
+              .weightedAverageCommonSharesOutstandingDiluted | millions: "1.1-1"
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #emptyRow>
+  <tr>
+    <td [colSpan]="(elFinancialReports$ | async)?.length + 1">&nbsp;</td>
+  </tr>
+</ng-template>

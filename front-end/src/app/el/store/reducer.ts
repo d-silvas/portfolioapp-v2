@@ -1,7 +1,9 @@
 import { ActionReducerMap } from '@ngrx/store';
 
-import { ElState } from './state';
+import type { ElState } from './state';
+import { elFinancialReportsReducer } from '../el-financial-reports/store/reducers';
 
 export const elReducer: ActionReducerMap<ElState> = {
-  // segmentInfoAnalysis: sbuxSegmentInfoAnalysisReducer,
+  // segmentInfoAnalysis: elSegmentInfoAnalysisReducer,
+  financialReports: elFinancialReportsReducer,
 };

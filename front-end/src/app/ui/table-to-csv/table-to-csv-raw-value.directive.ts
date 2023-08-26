@@ -10,7 +10,7 @@ export class TableToCsvRawValueDirective implements OnInit {
 
   constructor(
     private readonly _renderer2: Renderer2,
-    private readonly _elementRef: ElementRef
+    private readonly _elementRef: ElementRef,
   ) {}
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class TableToCsvRawValueDirective implements OnInit {
       this._renderer2.setAttribute(
         this._elementRef.nativeElement,
         RAW_VALUE_ATTRIBUTE_NAME,
-        this.appTableToCsvRawValue.toString()
+        this.appTableToCsvRawValue.toString(),
       );
     }
   }

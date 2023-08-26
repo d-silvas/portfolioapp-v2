@@ -1,0 +1,77 @@
+// DEFAULTS
+
+// Needs to match the constant in code
+$app-table-class: "app-table-component";
+
+table.#{$app-table-class} {
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+    font-weight: bold;
+  }
+
+  th,
+  td {
+    padding: 2px;
+    font-weight: normal;
+    text-align: end;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 2px 2px 2px 12px;
+  }
+
+  th {
+    &[scope="row"] {
+      text-align: start;
+      white-space: normal;
+    }
+  }
+
+  .#{$app-table-class}-element {
+    &.#{$app-table-class}-element--bold {
+      font-weight: bold;
+
+      // Overwrite defaults in case the class is applied to the table or to a tr
+      th,
+      td {
+        font-weight: bold;
+      }
+    }
+
+    &.#{$app-table-class}-element--border-bottom {
+      border-bottom: 1pt solid black;
+    }
+
+    &.#{$app-table-class}-element--double-border-bottom {
+      border-bottom: 3pt double black;
+    }
+
+    &.#{$app-table-class}-element--border-top {
+      border-top: 1pt solid black;
+    }
+
+    &.#{$app-table-class}-element--dollar-sign {
+      &::before {
+        content: "$";
+        position: relative;
+        display: inline;
+        padding-right: 8px;
+      }
+    }
+  }
+}
+
+// THEMES
+
+table.#{$app-table-class}.#{$app-table-class}--asReported {
+  font-family: "Times New Roman", sans-serif;
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #cceeff;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TableDeltasComponent } from './table-deltas.component';
 import { PipesModule } from '../pipes/pipes.module';
-import { TableToCsvModule } from 'src/app/table-to-csv/table-to-csv.module';
+import { TableToCsvModule } from '../table-to-csv/table-to-csv.module';
 
 @NgModule({
   declarations: [TableDeltasComponent],
